@@ -32,8 +32,10 @@ public class Main {
 			} else {
 				path = "windows" + File.separator + "x86" + File.separator + LIB_NAME;
 			}
+		} else if (osName.toLowerCase().contains("linux")) {
+			path = "linux" + File.separator + "libopencv_java244.so";
 		} else {
-			path = "Fuck you, get a decent OS!";
+			throw new Error("Unsupported OS");
 		}
 
 		System.load(new File(path).getAbsolutePath());
