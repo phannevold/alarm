@@ -21,10 +21,19 @@ public class Main {
 		int width=0, height=0;
 		String path;
 
-		if (System.getProperty("os.arch").equals("amd64")) {
-			path = "windows" + File.separator + "x64" + File.separator + LIB_NAME;
+
+		String osName = System.getProperty("os.name");
+		System.out.println(osName);
+
+		if (osName.toLowerCase().contains("windows")) {
+
+			if (System.getProperty("os.arch").equals("amd64")) {
+				path = "windows" + File.separator + "x64" + File.separator + LIB_NAME;
+			} else {
+				path = "windows" + File.separator + "x86" + File.separator + LIB_NAME;
+			}
 		} else {
-			path = "windows" + File.separator + "x86" + File.separator + LIB_NAME;
+			path = "Fuck you, get a decent OS!";
 		}
 
 		System.load(new File(path).getAbsolutePath());
